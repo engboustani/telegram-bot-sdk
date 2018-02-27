@@ -678,6 +678,34 @@ class Api
 
         throw new TelegramSDKException('Invalid Action! Accepted value: '.implode(', ', $validActions));
     }
+    
+    /**
+     * Delete text messages.
+     *
+     * <code>
+     * $params = [
+     *   'chat_id'                  => '',
+     *   'message_id'               => '',
+     * ];
+     * </code>
+     *
+     * @link https://core.telegram.org/bots/api#deletemessage
+     *
+     * @param array    $params
+     *
+     * @var int|string $params ['chat_id']
+     * @var int        $params ['message_id']
+     *
+     * @throws TelegramSDKException
+     *
+     * @return TelegramResponse
+     */
+    public function deleteMessage(array $params)
+    {
+        $response = $this->post('deleteMessage', $params);
+
+        return $response;
+    }
 
     /**
      * Returns a list of profile pictures for a user.
